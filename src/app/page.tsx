@@ -1,9 +1,5 @@
-import { Button } from '@/components/ui/button'
+import { AuthScreen } from '@/app/features/auth/components/auth-screen'
 
 export default function Home() {
-  return (
-    <div>
-      <Button size="lg">hello world</Button>
-    </div>
-  )
+  return <AuthScreen />
 }
