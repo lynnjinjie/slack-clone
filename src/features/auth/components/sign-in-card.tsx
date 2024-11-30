@@ -1,4 +1,3 @@
-import { SignInFlow } from '@/app/features/auth/types'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -8,24 +7,31 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Separator } from '@radix-ui/react-separator'
+import { Separator } from '@/components/ui/separator'
+import { SignInFlow } from '@/features/auth/types'
+import { useAuthActions } from '@convex-dev/auth/react'
 import { useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 
-interface SignUpCardProps {
+interface SignInCardProps {
   setState: (state: SignInFlow) => void
 }
 
-export const SignUpCard = ({ setState }: SignUpCardProps) => {
+export const SignInCard = ({ setState }: SignInCardProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const { signIn } = useAuthActions()
+
+  const handleSignInProvider = (value: 'github' | 'google') => {
+    signIn(value)
+  }
 
   return (
     <Card className="size-full p-8">
       <CardHeader className="px-0 pt-0">
-        <CardTitle>Sign up to continue</CardTitle>
+        <CardTitle>Login in continue</CardTitle>
         <CardDescription>
           Use your email or another service to continue
         </CardDescription>
@@ -48,14 +54,6 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
             type="password"
             required
           />
-          <Input
-            disabled={false}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirm Password"
-            type="password"
-            required
-          />
           <Button type="submit" className="w-full" size="lg" disabled={false}>
             Continue
           </Button>
@@ -75,7 +73,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
           <Button
             disabled={false}
             variant="outline"
-            onClick={() => {}}
+            onClick={() => handleSignInProvider('github')}
             size="lg"
             className="relative w-full"
           >
@@ -84,12 +82,12 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
           </Button>
         </div>
         <p className="text-xs text-muted-foreground">
-          Already have an account?{' '}
+          Don&apos;t have an account?{' '}
           <span
-            onClick={() => setState('signIn')}
+            onClick={() => setState('signUp')}
             className="cursor-pointer text-sky-700 hover:underline"
           >
-            Sign In
+            Sign Up
           </span>
         </p>
       </CardContent>

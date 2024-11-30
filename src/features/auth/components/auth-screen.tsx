@@ -1,8 +1,8 @@
 'use client'
 
-import { SignInCard } from '@/app/features/auth/components/sign-in-card'
-import { SignUpCard } from '@/app/features/auth/components/sign-up-card'
-import { SignInFlow } from '@/app/features/auth/types'
+import { SignInCard } from '@/features/auth/components/sign-in-card'
+import { SignUpCard } from '@/features/auth/components/sign-up-card'
+import { SignInFlow } from '@/features/auth/types'
 import { useState } from 'react'
 
 export const AuthScreen = () => {

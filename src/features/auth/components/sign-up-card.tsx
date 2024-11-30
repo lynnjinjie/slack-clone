@@ -1,4 +1,3 @@
-import { SignInFlow } from '@/app/features/auth/types'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -8,23 +7,25 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
+import { SignInFlow } from '@/features/auth/types'
+import { Separator } from '@radix-ui/react-separator'
 import { useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 
-interface SignInCardProps {
+interface SignUpCardProps {
   setState: (state: SignInFlow) => void
 }
 
-export const SignInCard = ({ setState }: SignInCardProps) => {
+export const SignUpCard = ({ setState }: SignUpCardProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   return (
     <Card className="size-full p-8">
       <CardHeader className="px-0 pt-0">
-        <CardTitle>Login in continue</CardTitle>
+        <CardTitle>Sign up to continue</CardTitle>
         <CardDescription>
           Use your email or another service to continue
         </CardDescription>
@@ -44,6 +45,14 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+            type="password"
+            required
+          />
+          <Input
+            disabled={false}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
             type="password"
             required
           />
@@ -75,12 +84,12 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
           </Button>
         </div>
         <p className="text-xs text-muted-foreground">
-          Don&apos;t have an account?{' '}
+          Already have an account?{' '}
           <span
-            onClick={() => setState('signUp')}
+            onClick={() => setState('signIn')}
             className="cursor-pointer text-sky-700 hover:underline"
           >
-            Sign Up
+            Sign In
           </span>
         </p>
       </CardContent>
