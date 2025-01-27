@@ -31,7 +31,7 @@ export const CreateWorkspaceModal = () => {
 
     mutate(
       {
-        name: '',
+        name,
       },
       {
         onSuccess(data) {
