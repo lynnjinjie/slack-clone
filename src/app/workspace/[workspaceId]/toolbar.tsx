@@ -10,7 +10,7 @@ export const Toolbar = () => {
   return (
     <nav className="flex h-10 items-center justify-between bg-[#481349] p-1.5">
       <div className="flex-1" />
-      <div className="grow-2 min-w-[280px] max-w-[642px] shrink grow-[2]">
+      <div className="grow-2 min-w-[280px] max-w-[642px] shrink grow-2">
         <Button
           size="sm"
           className="hover:bg-accent-25 h-7 w-full justify-start bg-accent/25 px-2"
