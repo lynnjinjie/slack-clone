@@ -89,6 +89,7 @@ export const create = mutation({
   },
   handler: async (ctx, args) => {
     const userId = await getAuthUserId(ctx)
+    console.log('🚀 ~ handler: ~ userId:', userId)
     if (!userId) {
       throw new Error('Unauthorized')
     }
