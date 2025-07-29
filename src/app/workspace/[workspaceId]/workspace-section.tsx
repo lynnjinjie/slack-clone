@@ -22,7 +22,7 @@ export const WorkspaceSection = ({
 
   return (
     <div className="mt-3 flex flex-col px-2">
-      <div className="group flex items-center px-3.5">
+      <div className="group flex items-center px-1">
         <Button
           variant="transparent"
           className="size-6 shrink-0 p-0.5 text-sm text-[#f9edffcc]"

@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { useState } from 'react'
+import { JSX, useState } from 'react'
 
 export const useConfirm = (
   title: string,
